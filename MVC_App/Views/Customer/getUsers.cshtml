@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h2>Customer Details</h2>
+
+<button id="SubmitButton">Submit</button>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#SubmitButton').click(function () {
+         $.ajax({
+             url:'@Url.Action("PartialCustomers", "Customer")',
+             type:"GET",
+             success: function(data){
+                 $('#partialView').html(data);
+             }
+
+         })
+    })
+    })
+</script>
+<div id="partialView">
+
+</div>
